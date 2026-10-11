@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Artemis II Deep Space Gallery — Complete Project & Code Guide</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm 20mm 16mm;
+      @bottom-right {
+        content: counter(page);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 9pt;
+        color: #64748b;
+      }
+    }
+    
+    body {
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      line-height: 1.6;
+      font-size: 10.2pt;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+
+    /* Cover / Hero Header */
+    .hero {
+      background: linear-gradient(135deg, #090d16 0%, #1e1b4b 50%, #0f172a 100%);
+      color: #ffffff;
+      padding: 32px 30px;
+      border-radius: 10px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      page-break-inside: avoid;
+    }
+    .hero-tag {
+      font-size: 8.5pt;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #f6c945;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .hero h1 {
+      font-size: 24pt;
+      line-height: 1.2;
+      margin: 0 0 10px 0;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .hero-subtitle {
+      font-size: 11pt;
+      color: #cbd5e1;
+      max-width: 90%;
+      margin: 0 0 16px 0;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 18px;
+      font-size: 8.5pt;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 12px;
+    }
+    .hero-meta span strong {
+      color: #e2e8f0;
+    }
+
+    h2 {
+      font-size: 14pt;
+      color: #1e293b;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 6px;
+      margin-top: 26px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      page-break-after: avoid;
+    }
+    h2 .num {
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 9pt;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-right: 8px;
+      font-weight: 700;
+    }
+    h3 {
+      font-size: 11.5pt;
+      color: #334155;
+      margin-top: 16px;
+      margin-bottom: 8px;
+      page-break-after: avoid;
+    }
+    p {
+      margin: 0 0 10px 0;
+      text-align: justify;
+    }
+    ul, ol {
+      margin: 0 0 12px 0;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      font-size: 8pt;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-purple { background: #f3e8ff; color: #6b21a8; }
+    .badge-emerald { background: #d1fae5; color: #065f46; }
+    .badge-amber { background: #fef3c7; color: #92400e; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 16px 0;
+      font-size: 9pt;
+      page-break-inside: avoid;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 7px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #1e293b;
+      font-weight: 700;
+    }
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+
+    /* Code Blocks */
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 8pt;
+      line-height: 1.45;
+      overflow-x: hidden;
+      white-space: pre-wrap;
+      word-break: break-all;
+      margin: 8px 0 14px 0;
+      border-left: 4px solid #3b82f6;
+      page-break-inside: avoid;
+    }
+    code {
+      font-family: "Consolas", "Courier New", monospace;
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-size: 8.8pt;
+    }
+    pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-left: 4px solid #2563eb;
+      background: #eff6ff;
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      margin: 12px 0;
+      font-size: 9.5pt;
+      page-break-inside: avoid;
+    }
+    .callout-amber {
+      border-left-color: #f59e0b;
+      background: #fffbeb;
+    }
+    .callout-emerald {
+      border-left-color: #10b981;
+      background: #ecfdf5;
+    }
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    /* Architecture grid */
+    .arch-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      page-break-inside: avoid;
+    }
+    .arch-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .arch-card-title {
+      font-weight: 700;
+      font-size: 10.5pt;
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <div class="hero-tag">PROJECT COMPREHENSIVE GUIDE & CODE SPECIFICATION</div>
+    <h1>Artemis II: The Deep Space Gallery</h1>
+    <div class="hero-subtitle">
+      A multi-page space flight visual journey built entirely with semantic, standard HTML5, zero JavaScript runtime dependencies, local media assets, and accessible navigational structure.
+    </div>
+    <div class="hero-meta">
+      <span><strong>Architecture:</strong> Pure Semantic HTML5</span> &nbsp;|&nbsp;
+      <span><strong>Pages:</strong> 4 Integrated Modules</span> &nbsp;|&nbsp;
+      <span><strong>Assets:</strong> Local HD Media Collection</span> &nbsp;|&nbsp;
+      <span><strong>Specification:</strong> W3C Validated</span>
+    </div>
+  </div>
+
+  <!-- SECTION 1: EXECUTIVE SUMMARY & ARCHITECTURE -->
+  <h2><span class="num">01</span> Project Overview & System Architecture</h2>
+  <p>
+    <strong>Artemis II: The Deep Space Gallery</strong> is an educational web application designed to chronicle NASA's upcoming crewed circumlunar test flight. The application is crafted entirely in clean, semantic HTML5 without requiring external frameworks or JavaScript, highlighting the expressive power, resilience, and accessibility of fundamental web standards.
+  </p>
+  <p>
+    The web project consists of four interconnected core pages sharing a unified navigation schema, persistent deep-space color themes, and dedicated functional responsibilities:
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 22%;">Filename</th>
+        <th style="width: 25%;">Module Name</th>
+        <th style="width: 25%;">Key Features & Elements</th>
+        <th style="width: 28%;">Primary Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>index.html</code></td>
+        <td><strong>Welcome Portal</strong></td>
+        <td><code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, lunar background, GET action form</td>
+        <td>Visual landing page welcoming users and establishing the lunar voyage atmosphere.</td>
+      </tr>
+      <tr>
+        <td><code>gallery.html</code></td>
+        <td><strong>Window Gallery</strong></td>
+        <td>14 <code>&lt;article&gt;</code> cards, <code>&lt;figure&gt;</code>, <code>&lt;figcaption&gt;</code>, <code>download</code> attributes</td>
+        <td>High-resolution downloadable exhibition of Earth, Moon, eclipse, and recovery photography.</td>
+      </tr>
+      <tr>
+        <td><code>mission.html</code></td>
+        <td><strong>Mission Trail</strong></td>
+        <td>Ordered trajectory <code>&lt;ol&gt;</code>, route diagram, perspective table, signal matrix</td>
+        <td>Curated scientific timeline tracking the four phases of Orion's translunar journey.</td>
+      </tr>
+      <tr>
+        <td><code>print-request.html</code></td>
+        <td><strong>Print Station</strong></td>
+        <td>Semantic <code>&lt;form&gt;</code>, <code>&lt;fieldset&gt;</code>, <code>&lt;select&gt;</code>, HTML5 validation</td>
+        <td>Interactive requisition station allowing visitors to order fine-art prints of any exhibition.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-emerald">
+    <div class="callout-title">Unified Multi-Page Navigation Bar</div>
+    Every single document implements a consistent, accessible navigation banner:
+    <br><code>&lt;nav aria-label="Main navigation" align="center"&gt;&lt;a href="index.html"&gt;Welcome&lt;/a&gt; | &lt;a href="gallery.html"&gt;Window Gallery&lt;/a&gt; | &lt;a href="mission.html"&gt;Mission Trail&lt;/a&gt; | &lt;a href="print-request.html"&gt;Print Station&lt;/a&gt;&lt;/nav&gt;</code>
+  </div>
+
+  <!-- SECTION 2: INDEX.HTML EXPLANATION -->
+  <div class="page-break"></div>
+  <h2><span class="num">02</span> index.html — The Welcome Portal</h2>
+  <p>
+    The main file, <code>index.html</code>, serves as the ceremonial entrance into the experience. It establishes the celestial context by presenting a majestic lunar wallpaper featuring the Earth setting behind the Moon's cratered horizon.
+  </p>
+
+  <div class="arch-card">
+    <div class="arch-card-header">
+      <span class="arch-card-title">Key Structural Components in index.html</span>
+      <span class="badge badge-blue">Portal Module</span>
+    </div>
+    <ul>
+      <li><strong>Document Type & Meta:</strong> Declares <code>&lt;!DOCTYPE html&gt;</code> with UTF-8 encoding and responsive viewport configuration.</li>
+      <li><strong>Background Composition:</strong> Combines legacy HTML attributes (<code>background</code>, <code>bgcolor</code>, <code>text</code>, <code>link</code>) with non-invasive inline styles (<code>background-repeat: no-repeat; background-position: center 200px;</code>). This prevents repetition while keeping the top reading corridor dark and pristine.</li>
+      <li><strong>Direct Navigation Gateway:</strong> Implements a pure HTML <code>&lt;form action="gallery.html" method="get"&gt;</code> that encases a prominent button <code>&lt;button type="submit"&gt;✦ Enter the Window Gallery ✦&lt;/button&gt;</code>, offering seamless routing without JavaScript handlers.</li>
+      <li><strong>Lunar Viewing Buffer:</strong> An intentional spacer element <code>&lt;section style="height: 230px;"&gt;</code> ensures the high-resolution setting Earth image remains visible and unobstructed by text.</li>
+    </ul>
+  </div>
+
+  <h3>Annotated Code Snippet: Main Structure & Comments</h3>
+  <pre><code>&lt;!-- Site header: identifies the Artemis II gallery and its purpose. --&gt;
+&lt;header align="center"&gt;
+  &lt;p&gt;✦ ✦ ✦ &amp;nbsp; NASA ARTEMIS II &amp;nbsp; ✦ ✦ ✦&lt;/p&gt;
+  &lt;h1&gt;Artemis II: The Deep Space Gallery&lt;/h1&gt;
+  &lt;p&gt;&lt;strong&gt;A human journey past home, toward the Moon, and into the blue-black unknown.&lt;/strong&gt;&lt;/p&gt;
+  &lt;hr color="#F6C945" size="3"&gt;
+&lt;/header&gt;
+
+&lt;!-- Navigation connects all four pages of the project. --&gt;
+&lt;nav aria-label="Main navigation" align="center"&gt;
+  &lt;p&gt;
+    &lt;a href="index.html"&gt;Welcome&lt;/a&gt; &amp;nbsp; | &amp;nbsp;
+    &lt;a href="gallery.html"&gt;Window Gallery&lt;/a&gt; &amp;nbsp; | &amp;nbsp;
+    &lt;a href="mission.html"&gt;Mission Trail&lt;/a&gt; &amp;nbsp; | &amp;nbsp;
+    &lt;a href="print-request.html"&gt;Print Station&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+  &lt;!-- Welcome message and call-to-action leading visitors into the image gallery --&gt;
+  &lt;section aria-labelledby="portal-title" align="center"&gt;
+    &lt;h2 id="portal-title"&gt;One Window. Two Worlds. One Way Home.&lt;/h2&gt;
+    &lt;p&gt;Artemis II carries a crew beyond low Earth orbit and around the Moon...&lt;/p&gt;
+    
+    &lt;!-- Action Form: Semantic form submitting a GET request directly to gallery.html --&gt;
+    &lt;form action="gallery.html" method="get"&gt;
+      &lt;button type="submit"&gt;✦ Enter the Window Gallery ✦&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Intentional viewing corridor keeping the lunar wallpaper unobstructed --&gt;
+  &lt;section aria-label="Lunar image viewing space" style="height: 230px;"&gt;&lt;/section&gt;
+&lt;/main&gt;</code></pre>
+
+  <!-- SECTION 3: GALLERY.HTML EXPLANATION -->
+  <div class="page-break"></div>
+  <h2><span class="num">03</span> gallery.html — The Window Gallery</h2>
+  <p>
+    <code>gallery.html</code> serves as the central visual exhibition. Styled with an indigo-violet backdrop (<code>bgcolor="#160B35"</code>), it organizes 14 curated high-resolution photographs into thematic curatorial sections.
+  </p>
+
+  <div class="arch-card">
+    <div class="arch-card-header">
+      <span class="arch-card-title">Curatorial Sections & Exhibition Breakdown</span>
+      <span class="badge badge-purple">Visual Exhibition</span>
+    </div>
+    <ul>
+      <li><strong>Earth: The Long Look Back (7 Cards):</strong> Features Crescent Earth, Earth Through Orion's Window, Looking Back at Earth, Earth Perspective, Crew Window View, Backlit Earth, and Artemis & Earth.</li>
+      <li><strong>Lunar Flyby (4 Cards):</strong> The Far Side Atlas, New Moon View, Edge of Lunar Day, and Setting Earth.</li>
+      <li><strong>Eclipse Studies (2 Cards):</strong> View from Orion and In Eclipse showing the corona-haloed Moon.</li>
+      <li><strong>Return (1 Card):</strong> Homeward Under Parachutes capturing ocean splashdown descent.</li>
+    </ul>
+  </div>
+
+  <h3>Semantic Architecture & Native File Downloads</h3>
+  <p>
+    Instead of generic image links, each card utilizes the semantic pairing of <code>&lt;article&gt;</code>, <code>&lt;figure&gt;</code>, and <code>&lt;figcaption&gt;</code>. Furthermore, all images are enveloped within anchor tags carrying HTML5 <code>download</code> attributes.
+  </p>
+
+  <pre><code>&lt;article&gt;
+  &lt;figure align="center"&gt;
+    &lt;!-- Download attribute triggers immediate browser download of local high-res asset --&gt;
+    &lt;a href="images/crisent%20earth.jpg" download="crescent-earth.jpg"&gt;
+      &lt;img src="images/crisent%20earth.jpg" alt="Crescent Earth emerging from black space" width="600"&gt;
+    &lt;/a&gt;
+    &lt;figcaption&gt;
+      &lt;strong&gt;Crescent Earth.&lt;/strong&gt; A slim, luminous curve of home.
+      &lt;a href="images/crisent%20earth.jpg" download="crescent-earth.jpg"&gt;Download image&lt;/a&gt;
+    &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/article&gt;</code></pre>
+
+  <div class="callout">
+    <div class="callout-title">Accessibility & Best Practice Highlight</div>
+    <ul style="margin: 0; padding-left: 16px;">
+      <li><strong>Informative <code>alt</code> Attributes:</strong> Every photograph provides screen-reader descriptions conveying celestial context rather than decorative placeholders.</li>
+      <li><strong>URL Encoding:</strong> Filenames containing whitespace use proper percent-encoding (e.g., <code>crisent%20earth.jpg</code>) ensuring bulletproof URI resolution across all operating systems.</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 4: MISSION.HTML EXPLANATION -->
+  <div class="page-break"></div>
+  <h2><span class="num">04</span> mission.html — The Mission Trail</h2>
+  <p>
+    <code>mission.html</code> delivers the scientific narrative and navigational trajectory of Artemis II. Styled in deep emerald-teal (<code>bgcolor="#052E2B"</code>) with seafoam accents (<code>#5EEAD4</code>), it balances visual diagrams with structured tabular data.
+  </p>
+
+  <div class="arch-card">
+    <div class="arch-card-header">
+      <span class="arch-card-title">Key Elements & Scientific Progression</span>
+      <span class="badge badge-emerald">Data & Flight Path</span>
+    </div>
+    <ol>
+      <li><strong>Ordered Flight Log (<code>&lt;ol&gt;</code>):</strong> Chronologically steps through the four primary mission checkpoints:
+        <ul>
+          <li><em>01 — Launch: Leaving the Blue</em> (SLS ascent and Trans-Lunar Injection)</li>
+          <li><em>02 — Outbound: The Long Look Back</em> (Deep space coast and Earth perspective)</li>
+          <li><em>03 — Lunar Flyby: Meeting the Far Side</em> (Circumlunar slingshot past the hidden hemisphere)</li>
+          <li><em>04 — Homeward: Carrying the View Back</em> (Trans-Earth return trajectory and atmospheric re-entry)</li>
+        </ul>
+      </li>
+      <li><strong>Downloadable Trajectory Infographic:</strong> Presents <code>artemis path.jpg</code> within a <code>&lt;figure&gt;</code> container with full download capabilities.</li>
+      <li><strong>Mission Perspective Table:</strong> Answers core educational questions comparing Orion to historical Apollo spacecraft.</li>
+      <li><strong>Signals from the Journey Matrix:</strong> A three-cell semantic grid synthesizing the roles of Home (Earth), Horizon (The Moon), and Vessel (Orion).</li>
+    </ol>
+  </div>
+
+  <h3>Annotated Code Snippet: Ordered Trail & Tabular Signals</h3>
+  <pre><code>&lt;section aria-labelledby="trail-title"&gt;
+  &lt;h2 id="trail-title" align="center"&gt;A Story Drawn Across Space&lt;/h2&gt;
+  &lt;figure align="center"&gt;
+    &lt;a href="images/artemis%20path.jpg" download="artemis-ii-mission-path.jpg"&gt;
+      &lt;img src="images/artemis%20path.jpg" alt="Artemis II mission path diagram" width="500"&gt;
+    &lt;/a&gt;
+    &lt;figcaption&gt;Artemis II mission path: launch, lunar flyby, and trans-Earth return.&lt;/figcaption&gt;
+  &lt;/figure&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;&lt;article&gt;&lt;h3&gt;01 — Launch: Leaving the Blue&lt;/h3&gt;...&lt;/article&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;article&gt;&lt;h3&gt;02 — Outbound: The Long Look Back&lt;/h3&gt;...&lt;/article&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;article&gt;&lt;h3&gt;03 — Lunar Flyby: Meeting the Far Side&lt;/h3&gt;...&lt;/article&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;article&gt;&lt;h3&gt;04 — Homeward: Carrying the View Back&lt;/h3&gt;...&lt;/article&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/section&gt;
+
+&lt;!-- Signals Matrix Table --&gt;
+&lt;table border="1" cellpadding="12" bgcolor="#075C56" width="90%"&gt;
+  &lt;tr&gt;
+    &lt;td align="center"&gt;&lt;strong&gt;🌎 HOME&lt;/strong&gt;&lt;br&gt;Earth: the luminous origin point.&lt;/td&gt;
+    &lt;td align="center"&gt;&lt;strong&gt;🌙 HORIZON&lt;/strong&gt;&lt;br&gt;The Moon: a world of craters and shadow.&lt;/td&gt;
+    &lt;td align="center"&gt;&lt;strong&gt;🛰 ORION&lt;/strong&gt;&lt;br&gt;The crew's deep-space vessel.&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+  <!-- SECTION 5: PRINT-REQUEST.HTML EXPLANATION -->
+  <div class="page-break"></div>
+  <h2><span class="num">05</span> print-request.html — The Print Station</h2>
+  <p>
+    <code>print-request.html</code> functions as an interactive acquisition station. Styled with a deep navy tone (<code>bgcolor="#071A33"</code>) with rose accents (<code>#FB7185</code>), it demonstrates comprehensive HTML5 form controls and native client-side validation.
+  </p>
+
+  <div class="arch-card">
+    <div class="arch-card-header">
+      <span class="arch-card-title">Form Controls & Input Specifications</span>
+      <span class="badge badge-amber">Interactive Form</span>
+    </div>
+    <ul>
+      <li><strong>Grouping Landmark (<code>&lt;fieldset&gt;</code> & <code>&lt;legend&gt;</code>):</strong> Groups the order fields into a logical module titled "Requester details", providing critical context for assistive technologies.</li>
+      <li><strong>Name Input:</strong> Text field utilizing <code>autocomplete="name"</code> to leverage user-agent autofill.</li>
+      <li><strong>Email Input with Built-in Validation:</strong> Utilizes <code>type="email"</code> and <code>required</code>, forcing the browser to reject submission unless a valid RFC-compliant email address format is provided.</li>
+      <li><strong>Exhibition Selector:</strong> Dropdown <code>&lt;select id="photo"&gt;</code> containing all 14 artworks from <code>gallery.html</code> for guaranteed cross-module consistency.</li>
+      <li><strong>Print Dimensions:</strong> Select input providing curated print sizes: A4 Desk Mission, A3 Observatory Wall, and A2 Deep Space Statement.</li>
+      <li><strong>Compliance Agreement:</strong> Checkbox with <code>required</code> validating consent prior to form transmission.</li>
+    </ul>
+  </div>
+
+  <h3>Annotated Form Code</h3>
+  <pre><code>&lt;form action="" method="post"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Requester details&lt;/legend&gt;
+    
+    &lt;!-- Text input with native autocomplete --&gt;
+    &lt;p&gt;&lt;label for="name"&gt;Your name&lt;/label&gt;&lt;br&gt;
+       &lt;input type="text" id="name" name="name" autocomplete="name"&gt;&lt;/p&gt;
+
+    &lt;!-- Validated email input --&gt;
+    &lt;p&gt;&lt;label for="email"&gt;Contact email&lt;/label&gt;&lt;br&gt;
+       &lt;input type="email" id="email" name="email" autocomplete="email" required&gt;&lt;/p&gt;
+
+    &lt;!-- Synchronized 14-exhibit dropdown --&gt;
+    &lt;p&gt;
+      &lt;label for="photo"&gt;Choose your gallery card&lt;/label&gt;&lt;br&gt;
+      &lt;select id="photo" name="photo"&gt;
+        &lt;option value="crescent-earth"&gt;Crescent Earth&lt;/option&gt;
+        &lt;option value="earth-window"&gt;Earth Through Orion's Window&lt;/option&gt;
+        &lt;option value="looking-back"&gt;Looking Back at Earth&lt;/option&gt;
+        &lt;!-- Remaining 11 options synchronized with gallery.html --&gt;
+      &lt;/select&gt;
+    &lt;/p&gt;
+
+    &lt;!-- Required terms validation checkbox --&gt;
+    &lt;p&gt;&lt;input type="checkbox" id="terms" name="terms" required&gt; 
+       &lt;label for="terms"&gt;I understand that these are illustrative concept images.&lt;/label&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;button type="submit"&gt;Transmit Print Request&lt;/button&gt;&lt;/p&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+
+  <!-- SECTION 6: BEST PRACTICES & SUMMARY -->
+  <div class="page-break"></div>
+  <h2><span class="num">06</span> Engineering Principles & Best Practices</h2>
+
+  <div class="callout callout-emerald">
+    <div class="callout-title">Key Architectural Strengths of the Project</div>
+    <ol style="margin: 0; padding-left: 18px;">
+      <li><strong>Strict Semantic Web Standards:</strong> Meaningful landmarks (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;figure&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code>) replace generic <code>&lt;div&gt;</code> soup.</li>
+      <li><strong>Accessibility (A11y):</strong> ARIA labels (<code>aria-label</code>, <code>aria-labelledby</code>), explicitly linked form labels (<code>&lt;label for="..."&gt;</code>), and descriptive <code>alt</code> text support assistive screen readers out of the box.</li>
+      <li><strong>Native Offline Capabilities:</strong> All 14 visual assets and mission diagrams reside inside the local <code>images/</code> folder. The site works flawlessly without internet access or CDN availability.</li>
+      <li><strong>Progressive Enhancement:</strong> Relies on native browser capabilities (such as form validation and download triggers) ensuring 100% functionality on modern browsers, legacy platforms, and text-based browsers alike.</li>
+    </ol>
+  </div>
+
+  <h2><span class="num">07</span> Execution & Deployment Guide</h2>
+  <ol>
+    <li><strong>Directory Verification:</strong> Ensure the project folder contains <code>index.html</code>, <code>gallery.html</code>, <code>mission.html</code>, <code>print-request.html</code>, and the <code>images/</code> subfolder.</li>
+    <li><strong>Direct Launch:</strong> Double-click <code>index.html</code> to open the welcome portal in any modern web browser (Edge, Chrome, Firefox, Safari).</li>
+    <li><strong>Navigation:</strong> Use the top navigation bar or the portal button to tour the collection, inspect trajectory data, or test print requests.</li>
+    <li><strong>Downloading Assets:</strong> Click on any picture in the Window Gallery to initiate an instant offline download of the local high-resolution artwork.</li>
+  </ol>
+
+  <hr style="border: none; border-top: 1px solid #cbd5e1; margin-top: 30px;">
+  <p style="text-align: center; font-size: 8.5pt; color: #64748b; margin-top: 10px;">
+    &copy; 2026 Artemis II Deep Space Gallery &middot; Comprehensive Project & Code Specification Guide &middot; Generated for Educational & Academic Review
+  </p>
+</body>
+</html>
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Physical print request form for Artemis II gallery illustrations.">
+  <title>Print Station | Artemis II</title>
+</head>
+<body bgcolor="#071A33" text="#FFF7ED" link="#FDE68A" vlink="#A5F3FC" alink="#FFFFFF">
+  <header align="center">
+    <p>✦ PRINT STATION 03 ✦</p>
+    <h1>Take a View Home</h1>
+    <p>Request a high-resolution physical print of an illustrative gallery card.</p>
+    <hr color="#FB7185" size="3">
+  </header>
+
+  <nav aria-label="Main navigation" align="center">
+    <p><a href="index.html">Welcome</a> | <a href="gallery.html">Window Gallery</a> | <a href="mission.html">Mission Trail</a> | <a href="print-request.html">Print Station</a></p>
+  </nav>
+
+  <main>
+    <section aria-labelledby="request-title" align="center">
+      <h2 id="request-title">High-Resolution Print Request</h2>
+      <p>For this demonstration site, submitting the form has no server destination. Your browser will validate the required details, but it will not send an order.</p>
+
+      <form action="" method="post">
+        <fieldset>
+          <legend>Requester details</legend>
+          <p><label for="name">Your name</label><br><input type="text" id="name" name="name" autocomplete="name"></p>
+          <p><label for="email">Contact email</label><br><input type="email" id="email" name="email" autocomplete="email" required></p>
+          <p>
+            <label for="photo">Choose your gallery card</label><br>
+            <select id="photo" name="photo">
+              <option value="crescent-earth">Crescent Earth</option>
+              <option value="earth-window">Earth Through Orion's Window</option>
+              <option value="looking-back">Looking Back at Earth</option>
+              <option value="earth-perspective">Earth Perspective</option>
+              <option value="crew-window">Crew Window View</option>
+              <option value="backlit-earth">Backlit Earth</option>
+              <option value="artemis-earth">Artemis and Earth</option>
+              <option value="far-side-atlas">The Far Side Atlas</option>
+              <option value="new-moon-view">New Moon View</option>
+              <option value="edge-lunar-day">Edge of Lunar Day</option>
+              <option value="setting-earth">Setting Earth</option>
+              <option value="orion-eclipse">View from Orion</option>
+              <option value="in-eclipse">In Eclipse</option>
+              <option value="homeward">Homeward Under Parachutes</option>
+            </select>
+          </p>
+          <p>
+            <label for="size">Print size</label><br>
+            <select id="size" name="size">
+              <option value="a4">A4 — Desk Mission</option>
+              <option value="a3">A3 — Observatory Wall</option>
+              <option value="a2">A2 — Deep Space Statement</option>
+            </select>
+          </p>
+          <p><input type="checkbox" id="terms" name="terms" required> <label for="terms">I understand that these are illustrative concept images and agree to the request terms.</label></p>
+          <p><button type="submit">Transmit Print Request</button></p>
+        </fieldset>
+      </form>
+    </section>
+
+    <section aria-labelledby="download-title" align="center">
+      <h2 id="download-title">Prefer Digital?</h2>
+      <p>Every artwork has a direct downloadable SVG link in the <a href="gallery.html">Window Gallery</a>.</p>
+    </section>
+  </main>
+
+  <footer align="center"><hr color="#FB7185" size="3"><p>&copy; 2026 Artemis II: The Deep Space Gallery &middot; <a href="index.html">Return home</a></p></footer>
+</body>
+</html>

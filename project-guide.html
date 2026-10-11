@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Artemis II Deep Space Gallery — Project Guide</title>
+</head>
+<body>
+  <header>
+    <h1>Artemis II: The Deep Space Gallery</h1>
+    <p><strong>Project documentation and code explanation</strong></p>
+    <hr>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Project overview</h2>
+      <p>This is a four-page Artemis II website. It presents a welcome page, a downloadable image gallery, a mission-trail page, and a print-request form. The site uses local images stored in the <code>images</code> folder and links all pages through a shared navigation menu.</p>
+      <table border="1" cellpadding="8">
+        <thead><tr><th>File</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>index.html</code></td><td>Welcome page and visual entry point.</td></tr>
+          <tr><td><code>gallery.html</code></td><td>Downloadable Earth, Moon, eclipse, and recovery image collection.</td></tr>
+          <tr><td><code>mission.html</code></td><td>Mission path, mission phases, reference facts, and journey signals.</td></tr>
+          <tr><td><code>print-request.html</code></td><td>Print-request form and gallery-card selection list.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>2. index.html — Welcome page</h2>
+      <p>The page starts with the HTML5 document declaration, language setting, character encoding, responsive viewport metadata, page description, and a page title. These details help browsers display the page correctly and help search engines understand its subject.</p>
+      <p>The <code>body</code> uses the local lunar-flyby image as a background. Its inline background properties prevent repetition, make the image span the page width, and position the scene lower on the page so the upper area remains dark and readable.</p>
+      <p>The <code>header</code> contains the gallery title and mission tagline. The <code>nav</code> contains links to all four pages. The main welcome <code>section</code> introduces Artemis II and has a form button that takes visitors to <code>gallery.html</code>.</p>
+      <p>An empty, labelled section intentionally leaves space for the lunar background to remain visible. The <code>footer</code> supplies the project copyright line. HTML comments in this file identify the header, navigation, welcome content, image-viewing space, and footer for easier study.</p>
+    </section>
+
+    <section>
+      <h2>3. gallery.html — Downloadable image gallery</h2>
+      <p>The gallery is organised into semantic sections: “Earth: The Long Look Back,” “Lunar Flyby,” “Eclipse Studies,” and “Return.” Each image is inside an <code>article</code> and <code>figure</code>, followed by a <code>figcaption</code>. This gives every photograph a meaningful title and explanation.</p>
+      <p>Every picture is wrapped in an anchor element with the <code>download</code> attribute. Clicking the picture or its “Download image” link downloads the local original image file rather than sending the visitor to an external website. Alt text describes each image for visitors using screen readers.</p>
+      <p>The gallery includes 14 cards: Crescent Earth; Earth Through Orion’s Window; Looking Back at Earth; Earth Perspective; Crew Window View; Backlit Earth; Artemis and Earth; The Far Side Atlas; New Moon View; Edge of Lunar Day; Setting Earth; View from Orion; In Eclipse; and Homeward Under Parachutes.</p>
+    </section>
+
+    <section>
+      <h2>4. mission.html — Mission Trail</h2>
+      <p>The Mission Trail uses an ordered list to describe four story phases: launch, outbound travel, lunar flyby, and the homeward journey. Each phase is placed inside an <code>article</code>, which makes its content independent and meaningful.</p>
+      <p>A figure displays <code>artemis path.jpg</code>. The image and its text link are downloadable, and the caption explains that it represents launch, lunar flyby, and trans-Earth return. A fact table provides quick mission context.</p>
+      <p>The “Signals from the Journey” table was moved here from the welcome page. Its three cells explain the roles of Earth as home, the Moon as the horizon, and Orion as the crew vessel.</p>
+    </section>
+
+    <section>
+      <h2>5. print-request.html — Print Station</h2>
+      <p>Print Station uses a deep-navy background to maintain the space theme. The page contains a <code>form</code> with a name field, an email field, gallery-card selection, print-size selection, terms checkbox, and submit button.</p>
+      <p>The email field and terms checkbox use <code>required</code>, so the browser checks them before allowing submission. The gallery-card dropdown contains every image title currently displayed in <code>gallery.html</code>. Because the form action is blank, it is a front-end demonstration and does not send an actual order to a server.</p>
+    </section>
+
+    <section>
+      <h2>6. Navigation, images, and accessibility</h2>
+      <ul>
+        <li>Each page has the same navigation destinations: Welcome, Window Gallery, Mission Trail, and Print Station.</li>
+        <li>All local image paths begin with <code>images/</code>. Spaces in filenames are written as <code>%20</code> in links where needed.</li>
+        <li>Every displayed image has descriptive <code>alt</code> text.</li>
+        <li>Section headings, captions, tables, labels, and landmark elements such as <code>header</code>, <code>nav</code>, <code>main</code>, and <code>footer</code> provide a clear semantic structure.</li>
+        <li>The website uses no JavaScript. The welcome page includes only small inline background-positioning rules because precise image placement cannot be controlled with legacy HTML background attributes alone.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. How to run the project</h2>
+      <ol>
+        <li>Keep all four HTML files and the <code>images</code> folder together inside <code>artemis-deep-space-gallery</code>.</li>
+        <li>Open <code>index.html</code> in a modern browser.</li>
+        <li>Use the navigation links to visit the remaining pages.</li>
+        <li>Use the image links in the gallery to download local copies.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <hr>
+    <p>Artemis II: The Deep Space Gallery — Project Guide</p>
+  </footer>
+</body>
+</html>
