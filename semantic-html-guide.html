@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <title>Artemis II - Semantic HTML5 Guide</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm 18mm 16mm;
+    }
+    body {
+      font-family: 'Segoe UI', 'Nirmala UI', 'Kalpurush', 'SolaimanLipi', sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      font-size: 13.5px;
+    }
+    .header-box {
+      background: linear-gradient(135deg, #0d1b2a, #1b263b);
+      color: #f1f5f9;
+      padding: 24px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      border-left: 6px solid #d4af37;
+    }
+    .header-box h1 {
+      margin: 0 0 6px 0;
+      font-size: 24px;
+      color: #ffd700;
+    }
+    .header-box p {
+      margin: 4px 0 0 0;
+      font-size: 14px;
+      color: #e2e8f0;
+    }
+    .badge {
+      display: inline-block;
+      background: #ffd700;
+      color: #0d1b2a;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    h2 {
+      color: #0f172a;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 6px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+    }
+    h3 {
+      color: #1e3a8a;
+      margin-top: 16px;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    p {
+      margin: 8px 0;
+      text-align: justify;
+    }
+    ul, ol {
+      margin: 6px 0 12px 20px;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    code {
+      font-family: 'Consolas', 'Courier New', monospace;
+      background: #f1f5f9;
+      color: #be123c;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12.5px;
+      border: 1px solid #e2e8f0;
+    }
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 12px;
+      overflow-x: auto;
+      margin: 10px 0;
+      line-height: 1.45;
+    }
+    pre .tag { color: #f472b6; }
+    pre .attr { color: #38bdf8; }
+    pre .val { color: #fde047; }
+    pre .cmt { color: #94a3b8; font-style: italic; }
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #2563eb;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin: 14px 0;
+    }
+    .highlight-card {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 4px solid #d97706;
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin: 16px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 13px;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 600;
+    }
+    tr:nth-child(even) td {
+      background: #fafafa;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+    .footer-note {
+      margin-top: 25px;
+      padding-top: 10px;
+      border-top: 1px solid #e2e8f0;
+      text-align: center;
+      font-size: 11.5px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-box">
+    <span class="badge">Course Project Guide</span>
+    <h1>Artemis II: The Deep Space Gallery</h1>
+    <p><strong>বিষয়:</strong> সম্পূর্ণ প্রজেক্টের Semantic HTML5 ট্যাগসমূহ ও গুরুত্বপূর্ণ কিওয়ার্ডের বিস্তারিত বিশ্লেষণ</p>
+    <p style="font-size: 12px; opacity: 0.85;">প্রজেক্ট আর্কিটেকচার: Zero CSS Framework, Zero JavaScript, Pure Semantic HTML5</p>
+  </div>
+
+  <h2>১. Semantic HTML কী এবং কেন এটি ব্যবহার করা হয়েছে?</h2>
+  <p>
+    <strong>Semantic HTML</strong> (সিম্যান্টিক এইচটিএমএল) হলো এমন সব ট্যাগ ব্যবহার করা যার নিজস্ব একটি অর্থ বা তাৎপর্য রয়েছে। সাধারণ নন-সিম্যান্টিক ট্যাগ যেমন <code>&lt;div&gt;</code> বা <code>&lt;span&gt;</code> ব্রাউজার বা স্ক্রিন রিডারকে তাদের ভিতরের কন্টেন্ট সম্পর্কে কোনো ধারণা দেয় না। পক্ষান্তরে, <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code> এবং <code>&lt;section&gt;</code>-এর মতো সিম্যান্টিক ট্যাগ কন্টেন্টের প্রকৃতি সুস্পষ্টভাবে তুলে ধরে।
+  </p>
+  <ul>
+    <li><strong>Accessibility (অ্যাক্সেসিবিলিটি):</strong> দৃষ্টিপ্রতিবন্ধী ব্যবহারকারীরা যখন 'স্ক্রিন রিডার' ব্যবহার করেন, তখন সিম্যান্টিক ট্যাগ ব্রাউজারকে সহজে বুঝতে সাহায্য করে কোন অংশটি হেডার, মেনু বা মূল কন্টেন্ট।</li>
+    <li><strong>SEO (Search Engine Optimization):</strong> গুগল ও অন্যান্য সার্চ ইঞ্জিন ক্রলার খুব দ্রুত কন্টেন্টের মূল বিষয়বস্তু ইনডেক্স করতে পারে।</li>
+    <li><strong>Code Maintainability:</strong> অন্য কোনো ডেভেলপার কোড দেখলে মুহূর্তেই পুরো পেজের স্ট্রাকচার বুঝতে পারেন।</li>
+  </ul>
+
+  <div class="highlight-card">
+    <h3 style="margin-top: 0; color: #b45309;">২. বিশেষ বিশ্লেষণ: &lt;article&gt; ট্যাগটি কেন এবং কীভাবে ব্যবহার করা হলো?</h3>
+    <p>
+      <code>gallery.html</code>-এ প্রতিটি ছবির জন্য নিচের মতো কোড বিন্যাস ব্যবহার করা হয়েছে:
+    </p>
+<pre><code><span class="tag">&lt;article&gt;</span>
+  <span class="tag">&lt;figure</span> <span class="attr">align</span>=<span class="val">"center"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"images/crisent earth.jpg"</span> <span class="attr">download</span>=<span class="val">"crescent-earth.jpg"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"images/crisent earth.jpg"</span> <span class="attr">alt</span>=<span class="val">"Crescent Earth emerging from black space"</span> <span class="attr">width</span>=<span class="val">"600"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/a&gt;</span>
+    <span class="tag">&lt;figcaption&gt;</span>
+      <span class="tag">&lt;strong&gt;</span>Crescent Earth.<span class="tag">&lt;/strong&gt;</span> A slim, luminous curve of home. 
+      <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"images/crisent earth.jpg"</span> <span class="attr">download</span>=<span class="val">"crescent-earth.jpg"</span><span class="tag">&gt;</span>Download image<span class="tag">&lt;/a&gt;</span>
+    <span class="tag">&lt;/figcaption&gt;</span>
+  <span class="tag">&lt;/figure&gt;</span>
+<span class="tag">&lt;/article&gt;</span></code></pre>
+    <p><strong>এভাবে ব্যবহারের কারণসমূহ:</strong></p>
+    <ol>
+      <li><strong>Self-contained (স্বয়ংসম্পূর্ণ ইউনিট):</strong> HTML5 স্ট্যান্ডার্ড অনুযায়ী <code>&lt;article&gt;</code> হলো একটি স্বয়ংসম্পূর্ণ কন্টেন্ট ব্লক, যা পেজের বাকি অংশ থেকে আলাদা করে অন্য কোথাও নিয়ে গেলেও সম্পূর্ণ অর্থবহ থাকে। গ্যালারির প্রতিটি ছবি তার টাইটেল, বিবরণ এবং ডাউনলোড লিংকসহ একটি স্বাধীন "গ্যালারি কার্ড"। তাই সাধারণ <code>&lt;div&gt;</code>-এর বদলে <code>&lt;article&gt;</code> ব্যবহার করা হয়েছে।</li>
+      <li><strong>&lt;figure&gt; ও &lt;figcaption&gt; এর ভূমিকা:</strong> <code>&lt;figure&gt;</code> কোনো ভিজ্যুয়াল মিডিয়া নির্দেশ করে এবং <code>&lt;figcaption&gt;</code> ছবির ক্যাপশনকে স্বয়ংক্রিয়ভাবে ছবির সাথে যুক্ত করে দেয়।</li>
+      <li><strong><code>download</code> অ্যাট্রিবিউট:</strong> সাধারণ লিঙ্কে ক্লিক করলে নতুন পেজে ফাইল ওপেন হয়; কিন্তু <code>download="crescent-earth.jpg"</code> দেওয়ায় ব্রাউজার সরাসরি ওই নামে ছবিটি ডাউনলোড শুরু করে।</li>
+      <li><strong><code>alt</code> অ্যাট্রিবিউট:</strong> ছবি লোড না হলেও ব্যবহারকারী বুঝতে পারেন ছবিতে কী ছিল, এবং স্ক্রিন রিডার অন্ধ ব্যবহারকারীকে ছবির নিখুঁত বর্ণনা পড়ে শোনায়।</li>
+    </ol>
+  </div>
+
+  <div class="page-break"></div>
+
+  <h2>৩. প্রতিটি পেজের গুরুত্বপূর্ণ ট্যাগ ও কিওয়ার্ডের বিশদ বিশ্লেষণ</h2>
+
+  <h3>ক. index.html (হোম / ওয়েলকাম পোর্টাল)</h3>
+  <div class="card">
+    <ul>
+      <li><code>&lt;header&gt;</code>: পেজের শীর্ষ পরিচিতিমূলক অংশ। এতে প্রধান টাইটেল <code>&lt;h1&gt;</code> এবং মিশন ট্যাগলাইন রাখা হয়েছে।</li>
+      <li><code>&lt;nav aria-label="Main navigation"&gt;</code>: সাইটের মূল নেভিগেশন বার। <code>aria-label</code> স্ক্রিন রিডারকে জানিয়ে দেয় এটি প্রধান মেনু।</li>
+      <li><code>&lt;main&gt;</code>: পুরো পেজে <strong>একমাত্র একবার</strong> ব্যবহৃত হয়। এটি সাইটের হেডার বা ফুটার বাদ দিয়ে পেজের মূল ইউনিক কন্টেন্ট ধারণ করে।</li>
+      <li><code>&lt;section aria-labelledby="portal-title"&gt;</code>: মূল কন্টেন্টকে বিষয়ভিত্তিক সেকশনে ভাগ করা হয়েছে। <code>aria-labelledby</code> দিয়ে ভেতরের <code>&lt;h2 id="portal-title"&gt;</code>-এর সাথে সেকশনকে যুক্ত করা হয়েছে।</li>
+      <li><code>&lt;form action="gallery.html" method="get"&gt;</code>: জাভাস্ক্রিপ্ট ছাড়া পিওর এইচটিএমএল বাটন দিয়ে পরবর্তী পেজে যাওয়ার সিম্যান্টিক লিংক তৈরি করা হয়েছে।</li>
+      <li><code>&lt;footer&gt;</code>: পেজের সমাপনী অংশে কপিরাইট ও ফুটনোট দেওয়ার জন্য ব্যবহৃত হয়েছে।</li>
+    </ul>
+  </div>
+
+  <h3>খ. gallery.html (উইন্ডো গ্যালারি)</h3>
+  <div class="card">
+    <ul>
+      <li><code>&lt;section aria-labelledby="earth-title"&gt;</code>: ছবিগুলোকে ৪টি ভিন্ন ক্যাটাগরিতে (Earth, Lunar Flyby, Eclipse Studies, Return) ভাগ করা হয়েছে।</li>
+      <li><code>&lt;article&gt;</code>: প্রতিটি ছবি ও তার ক্যাপশনকে স্বতন্ত্র একটি আইটেম হিসেবে এনক্যাপসুলেট করা হয়েছে।</li>
+      <li><code>&lt;figure&gt;</code> ও <code>&lt;figcaption&gt;</code>: ছবির সাথে টেক্সচুয়াল ক্যাপশনের নিখুঁত সিম্যান্টিক রিলেশনশিপ তৈরি করেছে।</li>
+      <li><code>download</code> অ্যাট্রিবিউট: ইউজার যেন এক ক্লিকে হাই-রেজ্যুলেশন ছবি সংরক্ষণ করতে পারেন।</li>
+    </ul>
+  </div>
+
+  <h3>গ. mission.html (মিশন ট্রেইল)</h3>
+  <div class="card">
+    <ul>
+      <li><code>&lt;ol&gt;</code> ও <code>&lt;li&gt;</code> (Ordered List): মহাকাশ যাত্রার ৪টি ধাপ ক্রমানুসারে (01 Launch, 02 Outbound, 03 Lunar Flyby, 04 Homeward) সাজাতে ব্যবহৃত হয়েছে। প্রতিটি ধাপের নিজস্ব গুরুত্ব থাকায় প্রতি <code>&lt;li&gt;</code>-এর ভেতরে <code>&lt;article&gt;</code> ট্যাগ ব্যবহার করা হয়েছে।</li>
+      <li><code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code>: মিশনের গুরুত্বপূর্ণ প্রশ্নোত্তর ও দিকনির্দেশনা একটি পরিচ্ছন্ন গ্রিড ফরম্যাটে সাজানো হয়েছে। <code>&lt;th&gt;</code> হলো টেবিল হেডার এবং <code>&lt;td&gt;</code> হলো টেবিল ডেটা।</li>
+      <li><code>&lt;aside&gt;</code>: এমন কন্টেন্ট যা মূল লেখার সাথে সম্পর্কিত কিন্তু সরাসরি অংশ নয় (যেমন: "Explore next: Window Gallery" এর মতো সাইডনোট বা রেকমেন্ডেশন)।</li>
+    </ul>
+  </div>
+
+  <h3>ঘ. print-request.html (প্রিন্ট রিকোয়েস্ট ফর্ম)</h3>
+  <div class="card">
+    <ul>
+      <li><code>&lt;form action="" method="post"&gt;</code>: ব্যবহারকারীর ইনপুট ডেটা সংগ্রহ করার প্রধান কাঠামো।</li>
+      <li><code>&lt;fieldset&gt;</code> ও <code>&lt;legend&gt;</code>: ফর্মের ইনপুট ফিল্ডগুলোকে একটি ভিজ্যুয়াল বর্ডারে আবদ্ধ করে তার শিরোনাম (Requester details) দিতে ব্যবহৃত হয়েছে।</li>
+      <li><code>&lt;label for="name"&gt;</code> এবং <code>&lt;input id="name"&gt;</code>: <code>for</code> এবং <code>id</code> মিলিয়ে দেওয়ায় ব্যবহারকারী লেবেলে ক্লিক করলেই স্বয়ংক্রিয়ভাবে সংশ্লিষ্ট ইনপুট ফিল্ড ফোকাস হয়।</li>
+      <li><strong>HTML5 Native Form Validation:</strong>
+        <ul>
+          <li><code>type="email"</code>: ব্রাউজার স্বয়ংক্রিয়ভাবে ইমেইল সিনট্যাক্স যাচাই করে।</li>
+          <li><code>required</code>: ফিল্ড পূরণ না করে ফর্ম সাবমিট করা আটকায়।</li>
+          <li><code>autocomplete="name"</code>: ব্রাউজার থেকে অটোফিল সুবিধা দেয়।</li>
+        </ul>
+      </li>
+      <li><code>&lt;select&gt;</code> ও <code>&lt;option&gt;</code>: ইউজারকে ১৪টি ছবির যেকোনো একটি এবং প্রিন্ট সাইজ (A4, A3, A2) ড্রপডাউন থেকে বাছাই করতে দেয়।</li>
+    </ul>
+  </div>
+
+  <h2>৪. সিম্যান্টিক ট্যাগ বনাম নন-সিম্যান্টিক ট্যাগের তুলনা</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Semantic Tag (আপনার প্রজেক্টে ব্যবহৃত)</th>
+        <th>নন-সিম্যান্টিক বিকল্প (খারাপ চর্চা)</th>
+        <th>Semantic ব্যবহারের সুনির্দিষ্ট কারণ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>&lt;header&gt;</code></td>
+        <td><code>&lt;div class="header"&gt;</code></td>
+        <td>ব্রাউজার ও স্ক্রিন রিডার পেজের ইন্ট্রোডাকশন সরাসরি চিনতে পারে।</td>
+      </tr>
+      <tr>
+        <td><code>&lt;nav&gt;</code></td>
+        <td><code>&lt;div class="menu"&gt;</code></td>
+        <td>প্রধান লিংকগুলো আলাদা করে চিহ্নিত করে।</td>
+      </tr>
+      <tr>
+        <td><code>&lt;main&gt;</code></td>
+        <td><code>&lt;div id="content"&gt;</code></td>
+        <td>পেজের কেন্দ্রীয় ইউনিক কন্টেন্ট চিহ্নিত করে (এক পেজে একটিই থাকে)।</td>
+      </tr>
+      <tr>
+        <td><code>&lt;article&gt;</code></td>
+        <td><code>&lt;div class="card"&gt;</code></td>
+        <td>স্বয়ংসম্পূর্ণ কন্টেন্ট ব্লক (গ্যালারি আইটেম, ব্লগ পোস্ট)।</td>
+      </tr>
+      <tr>
+        <td><code>&lt;figure&gt; + &lt;figcaption&gt;</code></td>
+        <td><code>&lt;div&gt;&lt;img&gt;&lt;p&gt;caption&lt;/p&gt;&lt;/div&gt;</code></td>
+        <td>ছবির সাথে ক্যাপশন প্রোগ্রামাটিক্যালি কানেক্টেড থাকে।</td>
+      </tr>
+      <tr>
+        <td><code>&lt;aside&gt;</code></td>
+        <td><code>&lt;div class="sidebar"&gt;</code></td>
+        <td>পরোক্ষ বা সহযোগী তথ্য প্রকাশের আদর্শ ট্যাগ।</td>
+      </tr>
+      <tr>
+        <td><code>&lt;fieldset&gt; + &lt;legend&gt;</code></td>
+        <td><code>&lt;div class="form-group"&gt;</code></td>
+        <td>ফর্ম কন্ট্রোলগুলোকে গ্রুপ করে অর্থবহ শিরোনাম দেয়।</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer-note">
+    Artemis II: The Deep Space Gallery &middot; Semantic HTML5 Course Project Reference Guide &middot; 2026
+  </div>
+
+</body>
+</html>

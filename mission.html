@@ -3,31 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A colorful visual mission trail for Artemis II.">
+  <meta name="description" content="A visual mission trajectory trail for Artemis II.">
   <title>Mission Trail | Artemis II</title>
+  <!-- [CSS LINK]: Connects the timeline, table, and responsive layout styling -->
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body bgcolor="darkslategrey" text="mintcream" link="khaki" vlink="pink" alink="white">
-  <header align="center">
+<body>
+  <header>
     <p>✧ TRAJECTORY LOG ✧</p>
     <h1>The Mission Trail</h1>
     <p>Four moments that transform a launch into a lunar journey.</p>
-    <hr color="turquoise" size="3">
   </header>
 
-  <nav aria-label="Main navigation" align="center">
-    <p><a href="index.html">Welcome</a> | <a href="gallery.html">Window Gallery</a> | <a href="mission.html">Mission Trail</a> | <a href="print-request.html">Print Station</a></p>
+  <nav aria-label="Main navigation">
+    <p>
+      <a href="index.html">Welcome</a>
+      <a href="gallery.html">Window Gallery</a>
+      <a href="mission.html" class="active" aria-current="page">Mission Trail</a>
+      <a href="print-request.html">Print Station</a>
+    </p>
   </nav>
 
   <main>
     <section aria-labelledby="trail-title">
-      <h2 id="trail-title" align="center">A Story Drawn Across Space</h2>
-      <figure align="center">
+      <h2 id="trail-title" style="text-align: center; margin-bottom: 2rem;">A Story Drawn Across Space</h2>
+      
+      <figure class="trail-diagram">
         <a href="images/artemis%20path.jpg" download="artemis-ii-mission-path.jpg">
-          <img src="images/artemis%20path.jpg" alt="Artemis II mission path diagram showing the route from Earth around the Moon and back" width="500">
+          <img src="images/artemis%20path.jpg" alt="Artemis II mission path diagram showing the route from Earth around the Moon and back">
         </a>
-        <figcaption>Artemis II mission path: launch, lunar flyby, and trans-Earth return. <a href="images/artemis%20path.jpg" download="artemis-ii-mission-path.jpg">Download mission-path image</a></figcaption>
+        <figcaption style="margin-top: 0.75rem; font-size: 0.95rem;">
+          Artemis II mission path: launch, lunar flyby, and trans-Earth return. 
+          <a href="images/artemis%20path.jpg" download="artemis-ii-mission-path.jpg">Download diagram</a>
+        </figcaption>
       </figure>
-      <ol>
+
+      <!-- [CSS TIMELINE]: 'mission-timeline' turns standard <ol> into a vertical line with glowing step circles -->
+      <ol class="mission-timeline">
         <li>
           <article>
             <h3>01 — Launch: Leaving the Blue</h3>
@@ -55,32 +67,56 @@
       </ol>
     </section>
 
-    <section aria-labelledby="fact-title" align="center">
-      <h2 id="fact-title">Mission Perspective</h2>
-      <table border="1" cellpadding="12" bgcolor="teal">
-        <tr><th>Question</th><th>Gallery Answer</th></tr>
-        <tr><td>What makes the view special?</td><td>Earth and Moon can be understood together: one living home and one neighboring world.</td></tr>
-        <tr><td>What is Orion?</td><td>The crew spacecraft represented throughout this concept gallery.</td></tr>
-        <tr><td>Are these flight images?</td><td>No. The colorful gallery images are original illustrations, clearly marked as such.</td></tr>
-      </table>
+    <section aria-labelledby="fact-title" style="max-width: 850px; margin: 3rem auto;">
+      <h2 id="fact-title" style="text-align: center;">Mission Perspective</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Gallery Answer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>What makes the view special?</strong></td>
+              <td>Earth and Moon can be understood together: one living home and one neighboring world.</td>
+            </tr>
+            <tr>
+              <td><strong>What is Orion?</strong></td>
+              <td>The crew spacecraft represented throughout this concept gallery.</td>
+            </tr>
+            <tr>
+              <td><strong>Are these flight images?</strong></td>
+              <td>No. The colorful gallery images are original illustrations, clearly marked as such.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
-    <section aria-labelledby="signals-title" align="center">
-      <h2 id="signals-title">Signals from the Journey</h2>
-      <table border="1" cellpadding="12" bgcolor="teal" width="90%">
-        <tr>
-          <td align="center"><strong>🌎 HOME</strong><br>Earth: the luminous origin point.</td>
-          <td align="center"><strong>🌙 HORIZON</strong><br>The Moon: a world of craters and shadow.</td>
-          <td align="center"><strong>🛰 ORION</strong><br>The crew's deep-space vessel.</td>
-        </tr>
-      </table>
+    <section aria-labelledby="signals-title" style="max-width: 850px; margin: 3rem auto;">
+      <h2 id="signals-title" style="text-align: center;">Signals from the Journey</h2>
+      <div class="table-container">
+        <table>
+          <tbody>
+            <tr>
+              <td style="text-align: center; width: 33%;"><strong>🌎 HOME</strong><br><span style="color: var(--text-muted); font-size: 0.95rem;">Earth: the luminous origin point.</span></td>
+              <td style="text-align: center; width: 33%;"><strong>🌙 HORIZON</strong><br><span style="color: var(--text-muted); font-size: 0.95rem;">The Moon: a world of craters and shadow.</span></td>
+              <td style="text-align: center; width: 33%;"><strong>🛰 ORION</strong><br><span style="color: var(--text-muted); font-size: 0.95rem;">The crew's deep-space vessel.</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
-    <aside align="center">
+    <aside>
       <p><strong>Explore next:</strong> See the imagined view in the <a href="gallery.html">Window Gallery</a>, then visit the <a href="print-request.html">Print Station</a>.</p>
     </aside>
   </main>
 
-  <footer align="center"><hr color="turquoise" size="3"><p>&copy; 2026 Artemis II: The Deep Space Gallery</p></footer>
+  <footer>
+    <p>&copy; 2026 Artemis II: The Deep Space Gallery &middot; Built with semantic HTML &amp; modern CSS.</p>
+  </footer>
 </body>
 </html>

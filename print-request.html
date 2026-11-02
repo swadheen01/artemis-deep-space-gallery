@@ -5,31 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Physical print request form for Artemis II gallery illustrations.">
   <title>Print Station | Artemis II</title>
+  <!-- [CSS LINK]: Connects the dark-mode form controls and glowing inputs -->
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body bgcolor="midnightblue" text="seashell" link="khaki" vlink="paleturquoise" alink="white">
-  <header align="center">
+<body>
+  <header>
     <p>✦ PRINT STATION 03 ✦</p>
     <h1>Take a View Home</h1>
     <p>Request a high-resolution physical print of an illustrative gallery card.</p>
-    <hr color="lightcoral" size="3">
   </header>
 
-  <nav aria-label="Main navigation" align="center">
-    <p><a href="index.html">Welcome</a> | <a href="gallery.html">Window Gallery</a> | <a href="mission.html">Mission Trail</a> | <a href="print-request.html">Print Station</a></p>
+  <nav aria-label="Main navigation">
+    <p>
+      <a href="index.html">Welcome</a>
+      <a href="gallery.html">Window Gallery</a>
+      <a href="mission.html">Mission Trail</a>
+      <a href="print-request.html" class="active" aria-current="page">Print Station</a>
+    </p>
   </nav>
 
   <main>
-    <section aria-labelledby="request-title" align="center">
-      <h2 id="request-title">High-Resolution Print Request</h2>
-      <p>For this demonstration site, submitting the form has no server destination. Your browser will validate the required details, but it will not send an order.</p>
+    <!-- [FORM CARD]: 'form-card' styles the form in a centered glassmorphism box with rounded corners -->
+    <section class="form-card" aria-labelledby="request-title">
+      <h2 id="request-title" style="text-align: center; margin-bottom: 0.5rem;">High-Resolution Print Request</h2>
+      <p style="text-align: center; margin-bottom: 2rem; font-size: 0.92rem;">
+        For this demonstration site, submitting the form has no server destination. Your browser will validate the required details locally.
+      </p>
 
       <form action="" method="post">
         <fieldset>
-          <legend>Requester details</legend>
-          <p><label for="name">Your name</label><br><input type="text" id="name" name="name" autocomplete="name"></p>
-          <p><label for="email">Contact email</label><br><input type="email" id="email" name="email" autocomplete="email" required></p>
-          <p>
-            <label for="photo">Choose your gallery card</label><br>
+          <legend>Requester Details</legend>
+          
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Enter your full name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Contact Email (Required)</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="name@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="photo">Choose Your Gallery Card</label>
             <select id="photo" name="photo">
               <option value="crescent-earth">Crescent Earth</option>
               <option value="earth-window">Earth Through Orion's Window</option>
@@ -46,27 +64,37 @@
               <option value="in-eclipse">In Eclipse</option>
               <option value="homeward">Homeward Under Parachutes</option>
             </select>
-          </p>
-          <p>
-            <label for="size">Print size</label><br>
+          </div>
+
+          <div class="form-group">
+            <label for="size">Print Size</label>
             <select id="size" name="size">
               <option value="a4">A4 — Desk Mission</option>
               <option value="a3">A3 — Observatory Wall</option>
               <option value="a2">A2 — Deep Space Statement</option>
             </select>
-          </p>
-          <p><input type="checkbox" id="terms" name="terms" required> <label for="terms">I understand that these are illustrative concept images and agree to the request terms.</label></p>
-          <p><button type="submit">Transmit Print Request</button></p>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">I understand that these are illustrative concept images and agree to the request terms.</label>
+          </div>
+
+          <div style="text-align: center; margin-top: 2rem;">
+            <button type="submit" class="btn">Transmit Print Request</button>
+          </div>
         </fieldset>
       </form>
     </section>
 
-    <section aria-labelledby="download-title" align="center">
+    <section aria-labelledby="download-title" style="text-align: center; margin-top: 3rem;">
       <h2 id="download-title">Prefer Digital?</h2>
-      <p>Every artwork has a direct downloadable SVG link in the <a href="gallery.html">Window Gallery</a>.</p>
+      <p>Every artwork has a direct downloadable image link in the <a href="gallery.html">Window Gallery</a>.</p>
     </section>
   </main>
 
-  <footer align="center"><hr color="lightcoral" size="3"><p>&copy; 2026 Artemis II: The Deep Space Gallery &middot; <a href="index.html">Return home</a></p></footer>
+  <footer>
+    <p>&copy; 2026 Artemis II: The Deep Space Gallery &middot; <a href="index.html">Return home</a></p>
+  </footer>
 </body>
 </html>
